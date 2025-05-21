@@ -10,7 +10,7 @@ const PRICE_PER_TICKET = 150;
 for (let i = 1; i <= 300; i++) {
   const option = document.createElement("option");
   option.value = i;
-  option.textContent = Билет №${i}; // ← Исправлено здесь
+  option.textContent = 'Билет №${i}'; // ← Исправлено здесь
   ticketList.appendChild(option);
 }
 
