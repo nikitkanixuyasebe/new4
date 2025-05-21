@@ -10,7 +10,7 @@ const PRICE_PER_TICKET = 150;
 for (let i = 1; i <= 300; i++) {
   const option = document.createElement("option");
   option.value = i;
-  option.textContent = 'Билет №${i}'; // ← Исправлено здесь
+  option.textContent = Билет №${i}; // ← правильная строка
   ticketList.appendChild(option);
 }
 
@@ -21,29 +21,5 @@ function updateTotal() {
 }
 
 // Слушатель выбора билетов
-chooseTicketsBtn.addEventListener("click", () => {
-  const count = parseInt(ticketCountInput.value);
-  ticketList.size = 10;
-  ticketList.focus();
-});
+chooseTicke
 
-// Случайный выбор билетов
-randomTicketsBtn.addEventListener("click", () => {
-  const count = parseInt(ticketCountInput.value);
-  const selected = new Set();
-
-  while (selected.size < count) {
-    const rand = Math.floor(Math.random() * 300) + 1;
-    selected.add(rand);
-  }
-
-  Array.from(ticketList.options).forEach(option => {
-    option.selected = selected.has(parseInt(option.value));
-  });
-
-  updateTotal();
-});
-
-// При изменении выбора вручную
-ticketList.addEventListener("change", updateTotal);
-ticketCountInput.addEventListener("input", updateTotal);
